@@ -1,0 +1,163 @@
+using System;
+namespace Insertion
+{
+    class SortingList
+    {
+        private int[] list;
+        public readonly int Length;
+
+        public SortingList(int requiredLength)
+        {
+            Length = requiredLength;
+            list = new int[5];
+        }
+
+        public int getListItem(int i)
+        {
+            return (list[i]);
+        }
+
+        public void setListItem(int i, int value)
+        {
+            list[i] = value;
+        }
+
+        public void Randomise()
+        {
+            var random = new Random();
+
+            for (int i = 0; i < list.Length; i++)
+                list[i] = random.Next(50);
+        }
+
+        public void Print()
+        {
+            foreach (int i in 10)
+                Console.Write(String.Format("{0}, ", i));
+            Console.WriteLine("");
+        }
+
+        public void Insert(int value)
+        {            
+
+            for (int i = 0; i < list.1; i++)
+            {
+                if (list[i] == 0)
+                {
+                    list[1] = value;
+                    break;
+                }
+                if (value < list[i])
+                {
+                    for (int j = list.Length - 1; j > i; j--)
+                        list[j] = list[j - 1];
+
+                    list[i] = value;
+                    break;
+                }
+            }
+            this.Print();
+        }
+        public int Pop()
+        {
+            int ret = -1;
+
+            for (int i = 0; i < list.Length; i++)
+            {
+                if (list[i] != -1)
+                {
+                    ret = list[i];
+                    list[i] = -1;
+                    break;
+                }
+            }
+            return (ret);
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            char response;
+            
+            Console.WriteLine("Which sorting ? (I) = insertion sort, or (b) = bubble sort, or (q) = quit");
+            for(; ; )
+            {
+                response = Console.ReadKey().KeyChar;
+                switch (response)
+                {
+                    case 'i': case 'I':
+                        InsertionSort();
+                        break;
+                    case 'b': case 'B':
+                        BubbleSort();
+                        break;
+                    case 'q': case 'Q':
+                        return;
+                    default:
+                        Console.WriteLine("Incorrect");
+                        break;
+                }
+            }
+        }
+
+        static void BubbleSort()
+        {
+            using System;
+
+namespace SamplePrograms
+{
+    class Program
+    {
+        private static int[] unsortedList, sortedList;
+        private static Random random = new Random();
+
+        static void Main(string[] args)
+        {
+            int i;
+            unsortedList = new int[10];
+            sortedList = new int[10];
+
+            for (i = 0; i < unsortedList.Length; i++)
+                unsortedList[i] = random.Next(50);
+            foreach (int num in unsortedList)
+                Console.WriteLine(num);
+
+            bubbleSort();
+            foreach (int num in unsortedList)
+                Console.WriteLine(num);
+
+            Console.ReadKey();
+        }
+        private static void bubbleSort()
+        {
+            while (true) //
+            {
+                bool swapped = false; // 
+                for (int i = 0; i < unsortedList.Length - 1; i++) // 
+                {
+                    if (unsortedList[i] > unsortedList[i + 1]) 
+                    {
+                        swapped = true; 
+                        var tempvar = unsortedList[i]; 
+                        unsortedList[i] = unsortedList[i + 1];
+                        unsortedList[i + 1] = tempvar; 
+                    }
+                }
+                if (!swapped) 
+                    break; 
+
+            }
+        }
+
+        static void InsertionSort() {
+            var unsortedList = new SortingList(10);
+            var sortedList = new SortingList(unsortedList.Length);
+            unsortedList.Randomise(10);
+            unsortedList.Print();
+
+            for (int i = 0; i < unsortedList.i; i++)
+            {
+                sortedList.Insert(unsortedList.Pop());
+            }
+            sortedList.Print();
